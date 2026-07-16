@@ -1,0 +1,60 @@
+/* Waybar — rose-pine minimal */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #e0def4;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background: #1f1d2e;
+    border-radius: 12px;
+    padding: 0 8px;
+    border: 1px solid #26233a;
+}
+
+#workspaces button {
+    color: #6e6a86;
+    padding: 0 6px;
+    background: transparent;
+    border-radius: 8px;
+}
+#workspaces button.active {
+    color: #c4a7e7;
+}
+#workspaces button:hover {
+    color: #e0def4;
+    background: #26233a;
+}
+
+#window {
+    color: #908caa;
+    padding: 0 8px;
+}
+
+#clock {
+    color: #ebbcba;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+#cpu, #memory, #network, #pulseaudio, #tray {
+    padding: 0 10px;
+    color: #e0def4;
+}
+#cpu       { color: #9ccfd8; }
+#memory    { color: #f6c177; }
+#network   { color: #31748f; }
+#pulseaudio { color: #c4a7e7; }
+#pulseaudio.muted { color: #eb6f92; }
+
+tooltip {
+    background: #1f1d2e;
+    border: 1px solid #403d52;
+    border-radius: 10px;
+    color: #e0def4;
+}

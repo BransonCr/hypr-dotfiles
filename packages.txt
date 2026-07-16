@@ -1,0 +1,80 @@
+# Official-repo packages (pacman). Comments and blank lines ignored.
+
+# --- Hyprland ecosystem ---
+hyprland
+hyprlock
+hypridle
+hyprpaper
+hyprsunset
+hyprpicker
+hyprpolkitagent
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+
+# --- Session / bar / launcher / notify ---
+waybar
+dunst
+wofi
+ly
+
+# --- Terminal / shell / editor ---
+kitty
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+starship
+neovim
+git
+base-devel
+
+# --- File management ---
+nnn
+thunar
+thunar-volman
+tumbler
+gvfs
+
+# --- Screenshot / clipboard / color ---
+grim
+slurp
+swappy
+wl-clipboard
+cliphist
+
+# --- Session menu / brightness / media ---
+wlogout
+brightnessctl
+playerctl
+
+# --- Audio (PipeWire) ---
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+pavucontrol
+
+# --- Network ---
+networkmanager
+network-manager-applet
+
+# --- Theming / Qt-GTK ---
+nwg-look
+qt5ct
+qt6ct
+qt5-wayland
+qt6-wayland
+polkit
+
+# --- Fonts ---
+ttf-jetbrains-mono-nerd
+ttf-hack-nerd
+ttf-firacode-nerd
+noto-fonts
+noto-fonts-emoji
+ttf-font-awesome
+papirus-icon-theme
+
+# --- Utilities used by configs ---
+btop
+imagemagick
+unzip

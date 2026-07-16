@@ -1,0 +1,5 @@
+# AUR packages (paru). Installed one-by-one; a failed name warns, doesn't abort.
+rofi-wayland
+rose-pine-gtk-theme
+rose-pine-cursor
+bibata-cursor-theme
