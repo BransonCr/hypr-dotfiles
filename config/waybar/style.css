@@ -1,60 +1,65 @@
-/* Waybar — rose-pine minimal */
+/* Flush black strip, small mono type, inverted active workspace + clock. */
 * {
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 13px;
+    font-family: "FiraCode Nerd Font";
+    font-weight: 500;
+    font-size: 11px;
     min-height: 0;
+    border: none;
+    border-radius: 0;
 }
 
 window#waybar {
-    background: transparent;
-    color: #e0def4;
+    background: #0d0d0d;
+    color: #b8b8b8;
 }
 
-.modules-left, .modules-center, .modules-right {
-    background: #1f1d2e;
-    border-radius: 12px;
-    padding: 0 8px;
-    border: 1px solid #26233a;
-}
+#workspaces { margin-left: 2px; }
 
 #workspaces button {
-    color: #6e6a86;
-    padding: 0 6px;
-    background: transparent;
-    border-radius: 8px;
+    color: #4a4a4a;
+    background: #2a2a2a;
+    padding: 0 5px;
+    margin: 4px 2px;
+    font-size: 0;      /* inactive: blank block, no digit */
+    min-width: 12px;
 }
 #workspaces button.active {
-    color: #c4a7e7;
+    color: #0d0d0d;
+    background: #d8d8d8;
+    font-size: 11px;
+}
+#workspaces button.urgent {
+    color: #0d0d0d;
+    background: #cc4433;
+    font-size: 11px;
 }
 #workspaces button:hover {
-    color: #e0def4;
-    background: #26233a;
+    background: #555;
 }
 
-#window {
-    color: #908caa;
+#memory, #disk, #pulseaudio, #temperature, #custom-weather {
     padding: 0 8px;
 }
 
+#mpris {
+    color: #8a8a8a;
+    padding: 0 10px;
+}
+#mpris.playing { color: #d8d8d8; }
+#mpris.stopped { color: #4a4a4a; }
+
 #clock {
-    color: #ebbcba;
-    font-weight: bold;
-    padding: 0 12px;
+    color: #0d0d0d;
+    background: #d8d8d8;
+    padding: 0 8px;
+    margin: 4px 3px 4px 4px;
 }
 
-#cpu, #memory, #network, #pulseaudio, #tray {
-    padding: 0 10px;
-    color: #e0def4;
-}
-#cpu       { color: #9ccfd8; }
-#memory    { color: #f6c177; }
-#network   { color: #31748f; }
-#pulseaudio { color: #c4a7e7; }
-#pulseaudio.muted { color: #eb6f92; }
+#pulseaudio.muted { color: #cc4433; }
+#temperature.critical { color: #cc4433; }
 
 tooltip {
-    background: #1f1d2e;
-    border: 1px solid #403d52;
-    border-radius: 10px;
-    color: #e0def4;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    color: #d8d8d8;
 }

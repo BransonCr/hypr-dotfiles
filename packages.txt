@@ -23,8 +23,12 @@ zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
 starship
+eza
+fzf
+zoxide
 neovim
 git
+lazygit
 base-devel
 
 # --- File management ---
@@ -74,7 +78,11 @@ noto-fonts-emoji
 ttf-font-awesome
 papirus-icon-theme
 
+# --- Browser ---
+firefox
+
 # --- Utilities used by configs ---
 btop
+fastfetch
 imagemagick
 unzip

@@ -1,66 +1,69 @@
-// Waybar — minimal, single top bar (rose-pine styled in style.css)
+// Waybar — flush full-width strip: black bg, square corners, inverted
+// active workspace + clock. Inactive workspaces are dim filled blocks.
 {
     "layer": "top",
-    "position": "top",
-    "height": 34,
-    "spacing": 6,
-    "margin-top": 6,
-    "margin-left": 8,
-    "margin-right": 8,
+    "position": "bottom",
+    "height": 25,
+    "spacing": 0,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory"],
+    "modules-left": ["hyprland/workspaces", "mpris"],
+    "modules-right": ["memory", "disk", "pulseaudio", "temperature", "custom/weather", "clock"],
 
     "hyprland/workspaces": {
         "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "active": ""
-        },
+        "format": "{id}",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
 
-    "hyprland/window": {
-        "max-length": 60,
-        "separate-outputs": true
+    "mpris": {
+        "format": "{status_icon} {dynamic}",
+        "dynamic-len": 40,
+        "status-icons": { "playing": "▶", "paused": "⏸", "stopped": "⏹" },
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-"
     },
 
-    "clock": {
-        "format": "  {:%a %d %b   %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
-    },
-
-    "cpu": {
-        "format": "  {usage}%",
-        "interval": 2
+    "custom/weather": {
+        // ponytail: wttr.in text scrape; swap for an API key if it rate-limits
+        "format": "{}",
+        "exec": "curl -sf --max-time 10 'wttr.in/Kelowna?format=%t&m' || echo ''",
+        "interval": 900,
+        "tooltip": false
     },
 
     "memory": {
-        "format": "  {}%",
+        "format": "▮ {percentage}%",
         "interval": 5
     },
 
-    "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "  {ifname}",
-        "format-disconnected": "  off",
-        "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "kitty -e nmtui"
+    "disk": {
+        "format": "▯ {percentage_used}%",
+        "interval": 60
     },
 
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "  muted",
-        "format-icons": { "default": ["", "", ""] },
+        "format": "{volume}%",
+        "format-muted": "muted",
         "on-click": "pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
+    "temperature": {
+        "format": "+{temperatureC}°C",
+        "interval": 5
+    },
+
+    "clock": {
+        // waybar 0.15.0 renders America/Vancouver at standard offset (PST/-8)
+        // year-round, ignoring DST -> bar was 1h behind all summer. LA is the
+        // same offsets and same DST rules, and waybar gets it right. Real fix,
+        // not a fixed shift: correct in winter too.
+        "timezone": "America/Los_Angeles",
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
     }
 }
